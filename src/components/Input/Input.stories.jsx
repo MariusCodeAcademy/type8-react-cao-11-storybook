@@ -51,3 +51,9 @@ DarkTextArea.args = {
   type: 'textarea',
   color: 'dark',
 };
+
+export const InputWithError = Template.bind({});
+InputWithError.args = {
+  value: 'JamesBond.lt',
+  errorMsg: 'must be valid email',
+};

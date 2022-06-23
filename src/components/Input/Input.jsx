@@ -1,7 +1,7 @@
 import css from './Input.module.css';
 import PropTypes from 'prop-types';
 
-function Input({ color = 'light', type = 'text', children, ...rest }) {
+function Input({ errorMsg, color = 'light', type = 'text', children, ...rest }) {
   if (type === 'textarea') {
     return (
       <textarea className={`${css.input} ${css.txa} ${css[color]}`} {...rest}>
@@ -10,7 +10,15 @@ function Input({ color = 'light', type = 'text', children, ...rest }) {
     );
   }
 
-  return <input className={`${css.input} ${css[color]}`} {...rest} />;
+  return (
+    <div>
+      <input
+        className={`${css.input} ${css[color]} ${errorMsg ? css.errField : ''}`}
+        {...rest}
+      />
+      {errorMsg && <p className={css.errorMsg}>{errorMsg}</p>}
+    </div>
+  );
 }
 
 Input.propTypes = {
@@ -18,5 +26,6 @@ Input.propTypes = {
   color: PropTypes.oneOf(['light', 'dark']),
   type: PropTypes.oneOf(['text', 'textarea']),
   value: PropTypes.string,
+  errorMsg: PropTypes.string,
 };
 export default Input;
