@@ -2,21 +2,27 @@ import css from './Input.module.css';
 import PropTypes from 'prop-types';
 
 function Input({ errorMsg, color = 'light', type = 'text', children, ...rest }) {
+  const showErrror = errorMsg && <p className={css.errorMsg}>{errorMsg}</p>;
+  const addErrClass = errorMsg ? css.errField : '';
+
   if (type === 'textarea') {
     return (
-      <textarea className={`${css.input} ${css.txa} ${css[color]}`} {...rest}>
-        {children}
-      </textarea>
+      <div>
+        <textarea
+          className={`${css.input} ${css.txa} ${css[color]} ${addErrClass}`}
+          {...rest}
+        >
+          {children}
+        </textarea>
+        {showErrror}
+      </div>
     );
   }
 
   return (
     <div>
-      <input
-        className={`${css.input} ${css[color]} ${errorMsg ? css.errField : ''}`}
-        {...rest}
-      />
-      {errorMsg && <p className={css.errorMsg}>{errorMsg}</p>}
+      <input className={`${css.input} ${css[color]} ${addErrClass}`} {...rest} />
+      {showErrror}
     </div>
   );
 }
