@@ -4,6 +4,15 @@ import Input from './Input';
 export default {
   title: 'Form/Input',
   component: Input,
+  argTypes: {
+    placeholder: {
+      type: 'string',
+      defaultValue: 'Enter a Something',
+    },
+    color: {
+      defaultValue: 'light',
+    },
+  },
 };
 
 // Wrapper yra dekoratorius
@@ -32,6 +41,13 @@ MainInput.args = {
   placeholder: 'Enter text here',
   color: 'light',
 };
+export const EmailInput = () => (
+  <Input value='james@example.com' color='light' type='email' />
+);
+
+export const PasswordInput = () => (
+  <Input placeholder='Enter Email' color='light' type='password' value='12345' />
+);
 
 export const DarkInput = Template.bind({});
 DarkInput.args = {

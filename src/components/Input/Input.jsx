@@ -21,7 +21,11 @@ function Input({ errorMsg, color = 'light', type = 'text', children, ...rest }) 
 
   return (
     <div>
-      <input className={`${css.input} ${css[color]} ${addErrClass}`} {...rest} />
+      <input
+        type={type}
+        className={`${css.input} ${css[color]} ${addErrClass}`}
+        {...rest}
+      />
       {showErrror}
     </div>
   );
@@ -30,7 +34,7 @@ function Input({ errorMsg, color = 'light', type = 'text', children, ...rest }) 
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   color: PropTypes.oneOf(['light', 'dark']),
-  type: PropTypes.oneOf(['text', 'textarea']),
+  type: PropTypes.oneOf(['text', 'textarea', 'password', 'email']),
   value: PropTypes.string,
   errorMsg: PropTypes.string,
 };
