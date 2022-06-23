@@ -12,7 +12,7 @@
 
 1. `<Input color="light | dark">` input elementas kuris gali buti tamsus arba sviesus
 2. `<Input type="text | textarea">` jei input gauna textarea prop jis atvaizduoja textarea
-3. `<Input error="privalomas laukas" >`
+3. `<Input error="privalomas laukas" >` jei input gauna error tai atvaizduojam errro texta po input ir pazymim pati inputa kaip netinkama. Paraudoninam fona ir borderi
 
 ## Icon
 
