@@ -6,7 +6,26 @@ export default {
   component: Input,
 };
 
-const Template = (args) => <Input {...args} />;
+// Wrapper yra dekoratorius
+const Wrapper = ({ children }) => (
+  <div
+    style={{
+      backgroundColor: 'lightcyan',
+      height: '200px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    {children}
+  </div>
+);
+
+const Template = (args) => (
+  <Wrapper>
+    <Input {...args} />
+  </Wrapper>
+);
 
 export const MainInput = Template.bind({});
 MainInput.args = {
@@ -25,6 +44,7 @@ TextArea.args = {
   ...MainInput.args,
   type: 'textarea',
 };
+
 export const DarkTextArea = Template.bind({});
 DarkTextArea.args = {
   ...MainInput.args,
